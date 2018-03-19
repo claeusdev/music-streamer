@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @song.title %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= number_to_currency(@song.price, unit: "GHS") %>
+</p>
+
+<p>
+  <strong>Artist:</strong>
+  <%= @song.artist.email %>
+</p>
+
+<audio controls>
+  <source src="<%= @song.mp3.url%>" type="audio/mp3">
+  <source src="<%= @song.mp3.url%>" type="audio/ogg">
+</audio>
+
+<%= link_to 'Edit', edit_song_path(@song) %> |
+<%= link_to 'Back', songs_path %>
