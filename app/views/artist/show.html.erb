@@ -1,0 +1,25 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="card card-profile">
+      	<div class="card-header" style="background-image: url(#{image_path "header.jpg"});"></div>
+      	<div class="card-body text-center">
+          <%= image_tag(@artist.image.url, class: "card-profile-img img-fluid")%>
+
+      		<h3 class="mb-3"><%= @artist.stage_name %></h3>
+
+      		<p class="mb-4">
+      			<%= @artist.about %>
+      		</p>
+
+      	</div>
+      </div>
+    </div>
+
+    <div class="col-sm-8">
+      <%= render @artist.songs %>
+    </div>
+  </div>
+
+</div>
