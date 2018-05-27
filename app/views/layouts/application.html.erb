@@ -6,14 +6,16 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/fonts/open-iconic.ttf">
   </head>
 
-  <body>
+  <body class="bg-white">
     <%= render "layouts/header" %>
-    <div class="bg-light pt-5">
+    <div class="">
       <%= yield %>
     </div>
 
-    
+
   </body>
 </html>

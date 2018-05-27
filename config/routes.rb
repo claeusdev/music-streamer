@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
+  get 'genres/index'
+
+  get 'genres/show'
+
+  resources :artists
   get 'dashboards/show'
 
-  devise_for :artists, controllers: {:registrations => 'artists/registrations'}
   devise_for :users, controllers: {:registrations => 'users/registrations'}
   resources :songs
-  resources :sonts
-  resources :artist, only: [:show]
+  resources :genres
   get 'pages/index'
 
   get 'pages/contact'

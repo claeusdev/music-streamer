@@ -11,29 +11,34 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title, id: :song_title %>
+  <div class="form-group">
+    <%= form.label :title, class: "form-label" %>
+    <%= form.text_field :title, id: :song_title , class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.text_field :price, id: :song_price %>
+  <div class="form-group">
+    <%= form.label :price, class: "form-label" %>
+    <%= form.number_field :price, id: :song_price , class: "form-control" %>
   </div>
 
 
-  <!-- <div class="field">
-    <%= form.label :artist_id %>
-    <%= form.text_field :artist_id, id: :song_artist_id %>
-  </div> -->
+  <div class="form-group">
+    <%= form.label :artist, class: "form-label" %>
+    <%= form.collection_select :artist_id, Artist.order(:name), :id, :name, {} , class: "form-control" %>
+  </div>
 
-  <div class="field">
-    <%= form.label :image %>
+  <div class="form-group">
+    <%= form.label :genre, class: "form-label" %>
+    <%= form.collection_select :genre_id, Genre.order(:name), :id, :name, {} , class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :image, class: "form-label" %>
     <%= form.file_field :image, id: :image %>
   </div>
 
-  <div class="field">
-    <%= form.label :mp3 %>
+  <div class="form-group">
+    <%= form.label :mp3, class: "form-label" %>
     <%= form.file_field :mp3, id: :image %>
   </div>
 

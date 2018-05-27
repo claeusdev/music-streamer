@@ -1,6 +1,6 @@
 class SongsController < ApplicationController
   before_action :set_song, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_artist!, except: [:show, :edit]
+  before_action :authenticate_user!, except: [:show, :index]
   # GET /songs
   # GET /songs.json
   def index
@@ -25,7 +25,7 @@ class SongsController < ApplicationController
   # POST /songs.json
   def create
     @song = Song.new(song_params)
-    @song.artist_id = current_artist.id
+    
     respond_to do |format|
       if @song.save
         format.html { redirect_to @song, notice: 'Song was successfully created.' }
@@ -69,7 +69,7 @@ class SongsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def song_params
-      params.require(:song).permit(:title, :price, :artist_id, :image, :mp3)
+      params.require(:song).permit(:title, :price, :artist_id, :image, :mp3, :genre_id)
     end
 
     def authenticate_admin

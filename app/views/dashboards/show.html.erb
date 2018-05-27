@@ -1,8 +1,8 @@
 <div class="container">
   <div class="div">
-    <%= link_to "View all artistes", root_path, class: "btn btn-dark btn-lg" %>
-    <%= link_to "View all songs", root_path, class: "btn btn-dark btn-lg" %>
-    <%= link_to "View all users", root_path, class: "btn btn-dark btn-lg" %>
+    <%= link_to "View all artistes", artists_path, class: "btn btn-dark btn-lg" %>
+    <%= link_to "View all songs", songs_path, class: "btn btn-dark btn-lg" %>
+    <%= link_to "Add song", new_song_path, class: "btn btn-dark btn-lg" %>
   </div>
 
 
@@ -10,7 +10,7 @@
 <div class="row">
   <div class="col-sm-6">
     <% @artists.each do |a| %>
-      <%= link_to a.stage_name, a %>
+      <%= link_to a.name, a %>
       <%= a.songs.count %>
     <% end %>
   </div>
@@ -18,7 +18,7 @@
   <div class="col-sm-6">
     <% @songs.each do |s| %>
       <%= link_to s.title, s %>
-      <%= s.artist.stage_name %>
+      <%= s.artist.name %>
     <% end %>
   </div>
 </div>
