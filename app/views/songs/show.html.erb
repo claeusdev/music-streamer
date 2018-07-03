@@ -83,7 +83,7 @@
 
           console.log(option);
           var requestPayload = {
-            "price": ,
+            "price": <%= @song.price.to_i %>,
             "network": network,
             "recipient_number": "0275338407",
             "sender": number,
@@ -104,6 +104,7 @@
               if(xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
                   // Request finished. Do processing here.
                   console.log(this.responseText);
+                  location.href = "/thankyou";
               }
           }
           console.log(payload);

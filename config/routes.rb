@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   get 'genres/index'
 
   get 'genres/show'
 
+  get '/thankyou', to: 'pages#thanks'
+  
   resources :artists
   get 'dashboards/show'
 
