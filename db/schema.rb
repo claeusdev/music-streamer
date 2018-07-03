@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180528035634) do
+ActiveRecord::Schema.define(version: 20180703133112) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,9 +75,8 @@ ActiveRecord::Schema.define(version: 20180528035634) do
     t.string "mp3_content_type"
     t.integer "mp3_file_size"
     t.datetime "mp3_updated_at"
-    t.bigint "artist_id"
     t.bigint "genre_id"
-    t.index ["artist_id"], name: "index_songs_on_artist_id"
+    t.string "artist"
     t.index ["genre_id"], name: "index_songs_on_genre_id"
   end
 
@@ -100,6 +99,5 @@ ActiveRecord::Schema.define(version: 20180528035634) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "songs", "artists"
   add_foreign_key "songs", "genres"
 end
