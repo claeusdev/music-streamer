@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   get 'genres/index'
@@ -10,10 +11,13 @@ Rails.application.routes.draw do
   resources :artists
   get 'dashboards/show'
 
+  resources :thanks, only: :show
   devise_for :users, controllers: {:registrations => 'users/registrations'}
   resources :songs
   resources :genres
   get 'pages/index'
+
+  get 'thankyou/:id', to: "thanks#show"
 
   get 'pages/contact'
 

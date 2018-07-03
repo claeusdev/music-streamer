@@ -100,7 +100,7 @@
               if(xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
                   // Request finished. Do processing here.
                   console.log(this.responseText);
-                  location.href = "/thankyou/<%= @song.id %>%";
+                  location.href = "/thankyou/<%= @song.id %>";
               }
           }
           console.log(payload);
