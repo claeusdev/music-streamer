@@ -8,6 +8,6 @@ class PagesController < ApplicationController
   end
 
   def thanks
-  	
+  	@song = Song.find(params[:id])
   end
 end

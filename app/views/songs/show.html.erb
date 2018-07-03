@@ -14,11 +14,7 @@
               </p>
 
 
-              <audio controls>
-                <source src="<%= @song.mp3.url%>" type="audio/mp3">
-                <source src="<%= @song.mp3.url%>" type="audio/ogg">
-              </audio>
-              <br>
+              
               <!-- <a href="" class="btn btn-dark" data-toggle="">Download for GHS1</a> -->
               <div class="btn btn-dark" data-toggle="modal" data-target="#exampleModal">
                 Buy for GHS1
@@ -104,7 +100,7 @@
               if(xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
                   // Request finished. Do processing here.
                   console.log(this.responseText);
-                  location.href = "/thankyou";
+                  location.href = "/thankyou/<%= @song.id %>%";
               }
           }
           console.log(payload);
