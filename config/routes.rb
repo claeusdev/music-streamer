@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   get 'genres/index'
@@ -20,6 +21,9 @@ Rails.application.routes.draw do
   get 'thankyou/:id', to: "thanks#show"
 
   get 'pages/contact'
+
+  get :search, controller: :searches
+
 
   get "/dashboard", to: "dashboards#show"
   root "pages#index"

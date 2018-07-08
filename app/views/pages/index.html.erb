@@ -1,0 +1,67 @@
+
+<div class="jumbotron bg-white hero">
+
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <% @tracks.each.with_index(0) do |song, index| %>
+      <li data-target="#carouselExampleIndicators" data-slide-to="<%= index %>" class="<%= index.zero? ? 'active' : '' %>"></li>
+    <% end %>
+  </ol>
+  <div class="carousel-inner">
+    <% @tracks.each.with_index(0) do |song, index| %>
+      <div class="carousel-item <%= index.zero? ? 'active' : '' %>">
+        <%= link_to song.image.url do %>
+          <%= image_tag(song.image.url, class: 'd-block w-100 img-fluid') %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+</div>
+
+
+<div class="container">
+  <div class='trending_section mb-5'>
+    <h1 class='text-center'>Latest releases</h1>
+    <div class='row'>
+      <% @songs.each do |song| %>
+        <div class='col-sm-3 col-6'>
+          <%= link_to song do %>
+            <div class='card bg-dark text-white'>
+                <%= image_tag(song.image.url, class: "card-img") %>
+                <div class='card-img-overlay'>
+                  <h5 class='card-title'><%= song.title %></h5>
+                  <p class='card-text'><%= song.artist %></p>
+                </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class='genre_section'>
+    <h1 class='text-center'>Genres</h1>
+    <div class='row'>
+      <% @genres.each do |g| %>
+        <div class='col-sm-3 col-6'>
+          <div class='card'>
+            <div class='card-body' style="background-image: url('<%= g.songs.last.image.url %>')">
+              <h3><%= link_to g.name, g %></h3>
+              <p><%= g.songs.last.title %></p>
+              <p><%= link_to "See more", g %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+</div>
+
+ 

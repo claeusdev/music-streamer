@@ -1,7 +1,8 @@
 class PagesController < ApplicationController
   def index
-    @tracks = Song.all
+    @tracks = Song.all.limit(5)
     @genres = Genre.all
+    @songs = Song.all
   end
 
   def contact
